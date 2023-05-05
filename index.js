@@ -34,7 +34,7 @@ const commands = [
 client.once('ready', () => {
     console.info('Bot has been ready!');
 
-    ['1075366696220626965', '705003456984907786'].map(id => client.guilds.cache.get(id).commands.set(commands));
+    ['1075366696220626965', '705003456984907786'].map(id => client.guilds.cache.get(id)?.commands.set(commands));
 });
 
 client.on('interactionCreate', async interaction => {
