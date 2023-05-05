@@ -4,35 +4,37 @@ require('dotenv').config();
 
 const client = new Client({ intents: ['Guilds', 'GuildIntegrations', 'GuildMembers'] });
 
+const commands = [
+    {
+        name: 'block',
+        description: '指定したユーザーをブロックします。',
+        options: [
+            {
+                name: 'target',
+                description: '指定するユーザー',
+                type: ApplicationCommandOptionType.User,
+                required: true,
+            },
+        ],
+    },
+    {
+        name: 'unblock',
+        description: '指定したユーザーのブロックを解除します。',
+        options: [
+            {
+                name: 'target',
+                description: '指定するユーザー',
+                type: ApplicationCommandOptionType.User,
+                required: true,
+            },
+        ],
+    }
+]
+
 client.once('ready', () => {
     console.info('Bot has been ready!');
 
-    client.guilds.cache.get('1075366696220626965').commands.set([
-        {
-            name: 'block',
-            description: '指定したユーザーをブロックします。',
-            options: [
-                {
-                    name: 'target',
-                    description: '指定するユーザー',
-                    type: ApplicationCommandOptionType.User,
-                    required: true,
-                },
-            ],
-        },
-        {
-            name: 'unblock',
-            description: '指定したユーザーのブロックを解除します。',
-            options: [
-                {
-                    name: 'target',
-                    description: '指定するユーザー',
-                    type: ApplicationCommandOptionType.User,
-                    required: true,
-                },
-            ],
-        }
-    ]);
+    ['1075366696220626965', '705003456984907786'].map(id => client.guilds.cache.get(id).commands.set(commands));
 });
 
 client.on('interactionCreate', async interaction => {
