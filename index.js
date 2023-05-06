@@ -28,6 +28,10 @@ const commands = [
                 required: true,
             },
         ],
+    },
+    {
+        name: 'check',
+        description: 'Check bot permissions in namek.',
     }
 ]
 
