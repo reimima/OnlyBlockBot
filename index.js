@@ -77,6 +77,7 @@ client.on('interactionCreate', async interaction => {
         if (!interaction.channel.permissionsFor(interaction.member).has(PermissionFlagsBits.ManageChannels)) {
             return interaction.reply({
                 content: 'あなたはチャンネル管理権限を所持してしません。管理権限を所持しているユーザーから権限を受け取って下さい。',
+                ephemeral: true,
             });
         }
 
@@ -101,6 +102,7 @@ client.on('interactionCreate', async interaction => {
         if (!interaction.channel.permissionsFor(interaction.member).has(PermissionFlagsBits.ManageChannels)) {
             return interaction.reply({
                 content: 'あなたはチャンネル管理権限を所持してしません。管理権限を所持しているユーザーから権限を受け取って下さい。',
+                ephemeral: true,
             });
         }
 
@@ -125,6 +127,7 @@ client.on('interactionCreate', async interaction => {
         if (!interaction.channel.permissionsFor(interaction.member).has(PermissionFlagsBits.ManageChannels)) {
             return interaction.reply({
                 content: 'あなたはチャンネル管理権限を所持してしません。管理権限を所持しているユーザーから権限を受け取って下さい。',
+                ephemeral: true,
             });
         }
 
@@ -186,6 +189,7 @@ client.on('interactionCreate', async interaction => {
         if (!interaction.channel.permissionsFor(interaction.member).has(PermissionFlagsBits.ManageChannels)) {
             return interaction.reply({
                 content: 'あなたはチャンネル管理権限を所持してしません。管理権限を所持しているユーザーから権限を受け取って下さい。',
+                ephemeral: true
             });
         }
 
