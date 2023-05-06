@@ -53,13 +53,9 @@ client.on('interactionCreate', async interaction => {
 
         const target = interaction.options.getMember('target');
         
-        await interaction.channel.permissionOverwrites.set([
-            {
-                id: target.user.id,
-                deny: [PermissionFlagsBits.ViewChannel],
-                type: 'member',
-            },
-        ]);
+        await interaction.channel.permissionOverwrites.edit(target.id, {
+            'ViewChannel': false,
+        });
 
         await interaction.reply({
             content: '正常に処理を完了しました。',
@@ -73,13 +69,9 @@ client.on('interactionCreate', async interaction => {
 
         const target = interaction.options.getMember('target');
         
-        await interaction.channel.permissionOverwrites.set([
-            {
-                id: target.user.id,
-                allow: [PermissionFlagsBits.ViewChannel],
-                type: 'member',
-            },
-        ]);
+        await interaction.channel.permissionOverwrites.edit(target.id, {
+            'ViewChannel': true,
+        });
 
         await interaction.reply({
             content: '正常に処理を完了しました。',
