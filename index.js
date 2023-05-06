@@ -1,4 +1,4 @@
-const { Client, PermissionFlagsBits, ApplicationCommandOptionType } = require('discord.js');
+const { Client, PermissionFlagsBits, ApplicationCommandOptionType, EmbedBuilder } = require('discord.js');
 
 require('dotenv').config();
 
@@ -80,6 +80,23 @@ client.on('interactionCreate', async interaction => {
         await interaction.reply({
             content: '正常に処理を完了しました。',
         });
+    } else if (interaction.commandName === 'check') {
+        if (interaction.user.id !== '871527050685612042') return;
+
+        const botPers = interaction.guild.members.me.permissions
+
+        await interaction.reply({
+            embeds: [
+                new EmbedBuilder()
+                    .addFields(
+                        { name: 'MargeChannels', value: `\`${botPers.has(PermissionFlagsBits.ManageChannels)}\``},
+                        { name: 'ReadMessageHistory', value: `\`${botPers.has(PermissionFlagsBits.ReadMessageHistory)}\``},
+                        { name: 'ModMembers', value: `\`${botPers.has(PermissionFlagsBits.ModerateMembers)}\``},
+                        { name: 'SentMessages', value: `\`${botPers.has(PermissionFlagsBits.SendMessages)}\`` }
+                    )
+            ],
+            ephemeral: true,
+        })
     }
 })
 
