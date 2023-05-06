@@ -99,7 +99,6 @@ client.on('interactionCreate', async interaction => {
                         { name: 'SentMessages', value: `\`${botPers.has(PermissionFlagsBits.SendMessages)}\`` }
                     )
             ],
-            ephemeral: true,
         })
     }
 })
