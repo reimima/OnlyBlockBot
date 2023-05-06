@@ -163,6 +163,8 @@ client.on('interactionCreate', async interaction => {
                 try {
                     await interaction.channel.permissionOverwrites.edit(target.id, {
                         'ManageChannels': true,
+                        'ManageMessages': true,
+                        'ManageThreads': true,
                     });
                 } catch (e) {
                     await interaction.reply({
@@ -198,6 +200,8 @@ client.on('interactionCreate', async interaction => {
         try {
             await interaction.channel.permissionOverwrites.edit(target.id, {
                 'ManageChannels': false,
+                'ManageMessages': false,
+                'ManageThreads': false,
             });
         } catch (e) {
             await interaction.reply({
